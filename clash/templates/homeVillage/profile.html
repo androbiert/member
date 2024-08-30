@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome to your Profile sir</h1>
+    <p>{% if messages %}
+
+        {% for m in messages %}
+
+        <li>{{m}}</li>
+        {% endfor %}
+        {% endif %}
+    </p>
+         <hr>
+
+         <h3>Here some of ur members</h3>
+
+           {% for x in members %}
+
+           <h2>{{x.firstname}} {{x.lastname}}  <h6><a href="{% url 'delete_profile' x.id %}">Delete</a> </h6></h2> 
+
+
+           {% endfor %}
+
+           <h2>Go  <a href="{% url 'home'%}">home</a></h2>
+</body>
+</html>
